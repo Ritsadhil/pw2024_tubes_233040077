@@ -33,6 +33,7 @@
                             <li><a class="dropdown-item" href="#">PACIFIC</a></li>
                             <li><a class="dropdown-item" href="#">EMEA</a></li>
                             <li><a class="dropdown-item" href="#">AMERICAS</a></li>
+                            <li><a class="dropdown-item" href="#">CHINA</a></li>
                             <li>
                                 <!-- <hr class="dropdown-divider">
                             </li>
@@ -114,7 +115,7 @@
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
                     <img src="image/CN.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">CN</h5>
+                        <h5 class="card-title">CHINA</h5>
                         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
