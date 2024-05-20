@@ -1,3 +1,11 @@
+<?php
+require 'functions.php';
+$tim = query("SELECT * FROM tim");
+$player = query("SELECT * FROM player");
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -13,7 +21,7 @@
     <!-- navbar -->
     <nav class="navbar sticky-top navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="image/600px-VCT_icon_darkmode.png" alt="vct" class="logo"></a>
+            <a class="navbar-brand" href="#"><img src="image/UI/600px-VCT_icon_darkmode.png" alt="vct" class="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -59,7 +67,7 @@
         <div class="row row-cols-1 row-cols-md-4 g-4">
             <div class="col">
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                    <img src="image/pacific.png" class="card-img-top" alt="...">
+                    <img src="image/region/pacific.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">PACIFIC</h5>
                         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
@@ -77,7 +85,7 @@
             </div>
             <div class="col">
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                    <img src="image/emea.png" class="card-img-top" alt="...">
+                    <img src="image/region/emea.png" class="card-img-top" alt="...">
                     <div class="card-body ">
                         <h5 class="card-title">EMEA</h5>
                         <!-- <p class="card-text">Some quick example text to build on the card title and make u p the bulk of the card's content.</p> -->
@@ -95,7 +103,7 @@
             </div>
             <div class="col">
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                    <img src="image/amer.png" class="card-img-top" alt="...">
+                    <img src="image/region/amer.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">AMERICAS</h5>
                         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
@@ -113,7 +121,7 @@
             </div>
             <div class="col">
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                    <img src="image/CN.png" class="card-img-top" alt="...">
+                    <img src="image/region/CN.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">CHINA</h5>
                         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
