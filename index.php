@@ -21,27 +21,27 @@ $player = query("SELECT * FROM player");
     <!-- navbar -->
     <nav class="navbar sticky-top navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="image/UI/600px-VCT_icon_darkmode.png" alt="vct" class="logo"></a>
+            <a class="navbar-brand" href="index.php"><img src="image/UI/600px-VCT_icon_darkmode.png" alt="vct" class="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#">Region</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Region
+                            Tim
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">PACIFIC</a></li>
-                            <li><a class="dropdown-item" href="#">EMEA</a></li>
-                            <li><a class="dropdown-item" href="#">AMERICAS</a></li>
-                            <li><a class="dropdown-item" href="#">CHINA</a></li>
+                            <li><a class="dropdown-item" href="pacific.php">PACIFIC</a></li>
+                            <li><a class="dropdown-item" href="emea.php">EMEA</a></li>
+                            <li><a class="dropdown-item" href="americas.php">AMERICAS</a></li>
+                            <li><a class="dropdown-item" href="china.php">CHINA</a></li>
                             <li>
                                 <!-- <hr class="dropdown-divider">
                             </li>
@@ -49,7 +49,7 @@ $player = query("SELECT * FROM player");
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Link</a>
+                        <a class="nav-link" href="#">Jadwal</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
