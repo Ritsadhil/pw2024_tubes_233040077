@@ -40,7 +40,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Jadwal</a>
+                        <a class="nav-link" href="jadwal.php">Jadwal</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -54,7 +54,9 @@
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                    <img src="image/tim/Fnatic.png" class="card-img-top" alt="...">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <img src="image/tim/Fnatic.png" class="card-img-top embed-responsive-item" alt="...">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">FNATIC</h5>
                         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
@@ -70,7 +72,9 @@
             </div>
             <div class="col">
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                    <img src="image/tim/Team_Heretics.png" class="card-img-top" alt="...">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <img src="image/tim/Team_Heretics.png" class="card-img-top embed-responsive-item" alt="...">
+                    </div>
                     <div class="card-body ">
                         <h5 class="card-title">Team Heretics</h5>
                         <!-- <p class="card-text">Some quick example text to build on the card title and make u p the bulk of the card's content.</p> -->
@@ -87,7 +91,9 @@
             </div>
             <div class="col">
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                    <img src="image/tim/Fut.png" class="card-img-top" alt="...">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <img src="image/tim/fut.png" class="card-img-top embed-responsive-item" alt="...">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">FUT Esports</h5>
                         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->

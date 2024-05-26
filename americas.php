@@ -29,7 +29,7 @@
                             Tim
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">PACIFIC</a></li>
+                            <li><a class="dropdown-item" href="pacific.php">PACIFIC</a></li>
                             <li><a class="dropdown-item" href="emea.php">EMEA</a></li>
                             <li><a class="dropdown-item" href="americas.php">AMERICAS</a></li>
                             <li><a class="dropdown-item" href="china.php">CHINA</a></li>
@@ -40,7 +40,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Jadwal</a>
+                        <a class="nav-link" href="jadwal.php">Jadwal</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -51,65 +51,57 @@
         </div>
     </nav>
     <section class="tim">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                    <img src="image/tim/Paper_Rex.png" class="card-img-top" alt="...">
+                    <img src="image/tim/100_Thieves.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">PAPER REX</h5>
+                        <h5 class="card-title">100 Thieves</h5>
                         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">Paper Rex</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Gen G</li>
-                        <li class="list-group-item text-white bg-dark mb-3">T1</li>
+                        <li class="list-group-item text-white bg-dark mb-3">Asuna</li>
+                        <li class="list-group-item text-white bg-dark mb-3">bang</li>
+                        <li class="list-group-item text-white bg-dark mb-3">Cryocells</li>
+                        <li class="list-group-item text-white bg-dark mb-3">eeiu</li>
+                        <li class="list-group-item text-white bg-dark mb-3">Boostio</li>
                     </ul>
                 </div>
             </div>
             <div class="col">
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                    <img src="image/region/emea.png" class="card-img-top" alt="...">
+                    <img src="image/tim/G2.png" class="card-img-top" alt="...">
                     <div class="card-body ">
-                        <h5 class="card-title">EMEA</h5>
+                        <h5 class="card-title">G2</h5>
                         <!-- <p class="card-text">Some quick example text to build on the card title and make u p the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">Fnatic</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Team Heretics</li>
-                        <li class="list-group-item text-white bg-dark mb-3">FUT Esports</li>
+                        <li class="list-group-item text-white bg-dark mb-3">JonahP</li>
+                        <li class="list-group-item text-white bg-dark mb-3">trent</li>
+                        <li class="list-group-item text-white bg-dark mb-3">valyn</li>
+                        <li class="list-group-item text-white bg-dark mb-3">leaf</li>
+                        <li class="list-group-item text-white bg-dark mb-3">Icy</li>
                     </ul>
                 </div>
             </div>
             <div class="col">
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                    <img src="image/region/amer.png" class="card-img-top" alt="...">
+                    <img src="image/tim/Leviatán.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">AMERICAS</h5>
+                        <h5 class="card-title">Leviatán</h5>
                         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">100 Thieves</li>
-                        <li class="list-group-item text-white bg-dark mb-3">G2 Esports</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Leviatán</li>
+                        <li class="list-group-item text-white bg-dark mb-3">kiNgg</li>
+                        <li class="list-group-item text-white bg-dark mb-3">Mazino</li>
+                        <li class="list-group-item text-white bg-dark mb-3">aspas</li>
+                        <li class="list-group-item text-white bg-dark mb-3">tex</li>
+                        <li class="list-group-item text-white bg-dark mb-3">C0M</li>
                     </ul>
 
                 </div>
             </div>
-            <div class="col">
-                <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                    <img src="image/region/CN.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">CHINA</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">EDward Gaming</li>
-                        <li class="list-group-item text-white bg-dark mb-3">FunPlus Phoenix</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Dragon Ranger Gaming</li>
-                    </ul>
 
-                </div>
-            </div>
         </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

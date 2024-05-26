@@ -1,0 +1,10 @@
+body {
+  background-image: url(../image/UI/timbg.jpg);
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+}

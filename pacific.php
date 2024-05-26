@@ -1,3 +1,15 @@
+<?php
+require 'functions.php';
+$paperrex = query("SELECT * FROM player WHERE tim_id=1");
+$geng = query("SELECT * FROM player WHERE tim_id=2");
+$t1 = query("SELECT * FROM player WHERE tim_id=3");
+
+
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -40,7 +52,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Jadwal</a>
+                        <a class="nav-link" href="jadwal.php">Jadwal</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -54,53 +66,60 @@
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                    <img src="image/tim/Paper_Rex.png" class="card-img-top" alt="...">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <img src="image/tim/Paper_Rex.png" class="card-img-top embed-responsive-item" alt="...">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">PAPER REX</h5>
                         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">d4v41</li>
-                        <li class="list-group-item text-white bg-dark mb-3">f0rsaken</li>
-                        <li class="list-group-item text-white bg-dark mb-3">mindfreak</li>
-                        <li class="list-group-item text-white bg-dark mb-3">something</li>
-                        <li class="list-group-item text-white bg-dark mb-3">jinggg</li>
+                        <?php foreach ($paperrex as $prx) : ?>
+                            <li class="list-group-item text-white bg-dark mb-3"><?= $prx['ign']; ?></li>
+                        <?php endforeach; ?>
                     </ul>
+
                 </div>
             </div>
             <div class="col">
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                    <img src="image/tim/Gen.G.png" class="card-img-top" alt="...">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <img src="image/tim/Gen.G.png" class="card-img-top embed-responsive-item" alt="...">
+                    </div>
                     <div class="card-body ">
                         <h5 class="card-title">Gen G</h5>
                         <!-- <p class="card-text">Some quick example text to build on the card title and make u p the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">Meteor</li>
-                        <li class="list-group-item text-white bg-dark mb-3">t3xture</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Lakia</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Munchkin</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Karon</li>
+                        <?php foreach ($geng as $gen) : ?>
+                            <li class="list-group-item text-white bg-dark mb-3"><?= $gen['ign']; ?>
+                                <a href="#" class="badge text-bg-warning text-decoration-none">ubah</a>
+                                <a href="#" class="badge text-bg-danger text-decoration-none end-100">hapus</a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
             <div class="col">
                 <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                    <img src="image/tim/T1.png" class="card-img-top" alt="...">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <img src="image/tim/T1.png" class="card-img-top embed-responsive-item" alt="...">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">T1</h5>
                         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">Sayaplayer</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Carpe</li>
-                        <li class="list-group-item text-white bg-dark mb-3">iZu</li>
-                        <li class="list-group-item text-white bg-dark mb-3">xccurate</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Rossy</li>
+                        <?php foreach ($t1 as $t1) : ?>
+                            <li class="list-group-item text-white bg-dark mb-3"><?= $t1['ign']; ?></li>
+                        <?php endforeach; ?>
+
                     </ul>
 
                 </div>
             </div>
+            <a href="tplayer.php" class="btn btn-outline-light position-absolute bottom-0 end-0" role="button">link</a>
+
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
