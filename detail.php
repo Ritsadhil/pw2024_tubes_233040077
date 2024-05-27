@@ -1,9 +1,13 @@
 <?php
 require 'functions.php';
 
-$games = query("SELECT * FROM game");
+$id = $_GET['id'];
+$games = query("SELECT * FROM game WHERE id = $id");
+
+
 
 ?>
+
 
 
 
@@ -13,7 +17,7 @@ $games = query("SELECT * FROM game");
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jadwal</title>
+    <title>Detail Pertandingan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../pw2024_tubes_233040077/css/style3.css">
 </head>
@@ -60,23 +64,23 @@ $games = query("SELECT * FROM game");
         </div>
     </nav>
 
-    <section class="jadwal">
-        <a href="tjadwal.php" class="btn btn-primary">Tambahkan Pertandingan</a>
-        <div class="row row-cols-1 row-cols-md-5 g-4">
-            <?php foreach ($games as $game) : ?>
-                <div class="card text-white bg-dark" style="width: 18rem;">
-                    <img src="../pw2024_tubes_233040077/image/jadwal/<?= $game['gambar']; ?>" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $game['judul']; ?></h5>
-                        <p class="card-text"><?= $game['tanggal']; ?></p>
-                        <a href="#" class="btn btn-primary"><?= $game['link']; ?></a>
-                        <a href="detail.php?id=<?= $game['id']; ?>" class="card-link">Detail</a>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+    <div class="card text-white bg-dark" style="width: 18rem;">
+        <div class="card-header text-white bg-dark">
+            Featured
         </div>
-    </section>
+        <ul class="list-group list-group-flush ">
+            <li class="list-group-item text-white bg-dark">Judul : <?= $games['judul']; ?></li>
+            <li class="list-group-item text-white bg-dark">Tanggal : <?= $games['tanggal']; ?></li>
+            <li class="list-group-item text-white bg-dark">Link : <?= $games['link']; ?></li>
+            <li class="list-group-item text-white bg-dark">Gambar : <?= $games['gambar']; ?></li>
+            <li><a href="#" class="badge text-bg-warning text-decoration-none">ubah</a>
+                <a href="#" class="badge text-bg-danger text-decoration-none">hapus</a>
+            </li>
+        </ul>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

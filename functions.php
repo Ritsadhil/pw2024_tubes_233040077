@@ -12,6 +12,10 @@ function query($query)
 
     $result = mysqli_query($conn, $query);
 
+    if (mysqli_num_rows($result) == 1) {
+        return mysqli_fetch_assoc($result);
+    }
+
     $rows = [];
     while ($row = mysqli_fetch_assoc($result)) {
         $rows[] = $row;
@@ -19,20 +23,21 @@ function query($query)
     return $rows;
 }
 
-
-function tplayer($data)
+function tambah($data)
 {
     $conn = koneksi();
 
+    $judul = htmlspecialchars($data['judul']);
+    $tanggal = htmlspecialchars($data['tanggal']);
+    $link = htmlspecialchars($data['link']);
+    $gambar = htmlspecialchars($data['gambar']);
 
-    $ign = htmlspecialchars($data['ign']);
-    $tim_id = htmlspecialchars($data['team_id']);
-
-    $query = "INSERT INTO player
-        VALUES (null, '$ign', '$tim_id')
+    $query = "INSERT INTO game
+            VALUES (null, '$judul', '$tanggal', '$link', '$gambar')
+    
     ";
-
-    mysqli_query($conn, $query) or die(mysqli_error($conn));
+    mysqli_query($conn, $query);
+    echo mysqli_error($conn);
 
     return mysqli_affected_rows($conn);
 }

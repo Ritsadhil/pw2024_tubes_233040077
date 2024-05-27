@@ -93,8 +93,6 @@ $t1 = query("SELECT * FROM player WHERE tim_id=3");
                     <ul class="list-group list-group-flush">
                         <?php foreach ($geng as $gen) : ?>
                             <li class="list-group-item text-white bg-dark mb-3"><?= $gen['ign']; ?>
-                                <a href="#" class="badge text-bg-warning text-decoration-none">ubah</a>
-                                <a href="#" class="badge text-bg-danger text-decoration-none end-100">hapus</a>
                             </li>
                         <?php endforeach; ?>
                     </ul>
@@ -118,7 +116,7 @@ $t1 = query("SELECT * FROM player WHERE tim_id=3");
 
                 </div>
             </div>
-            <a href="tplayer.php" class="btn btn-outline-light position-absolute bottom-0 end-0" role="button">link</a>
+
 
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

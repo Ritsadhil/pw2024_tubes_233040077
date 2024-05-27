@@ -49,7 +49,7 @@ $player = query("SELECT * FROM player");
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Jadwal</a>
+                        <a class="nav-link" href="jadwal.php">Jadwal</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">

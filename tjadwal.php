@@ -1,23 +1,21 @@
 <?php
 require 'functions.php';
-$tim = query("SELECT * FROM player");
-if (isset($_POST['tplayer'])) {
-    if (tplayer($_POST) > 0) {
+
+if (isset($_POST['tambah'])) {
+    if (tambah($_POST) > 0) {
         echo "<script>
         alert('data berhasil ditambahkan!');
-        document.location.href = 'pacific.php
-        </script>";
+        document.location.href = 'jadwal.php'
+    
+    </script>";
     } else {
-        echo "
-        <script>
-        alert('data gagal ditambahkan!');
-        document.location.href = 'pacific.php
-        </script>";
+        echo "Jadwal gagal ditambahkan";
     }
 }
 
-?>
 
+
+?>
 
 
 <!doctype html>
@@ -26,7 +24,7 @@ if (isset($_POST['tplayer'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tambah Player</title>
+    <title>Tambah Jadwal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../pw2024_tubes_233040077/css/style3.css">
 </head>
@@ -51,7 +49,7 @@ if (isset($_POST['tplayer'])) {
                             Tim
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">PACIFIC</a></li>
+                            <li><a class="dropdown-item" href="pacific.php">PACIFIC</a></li>
                             <li><a class="dropdown-item" href="emea.php">EMEA</a></li>
                             <li><a class="dropdown-item" href="americas.php">AMERICAS</a></li>
                             <li><a class="dropdown-item" href="china.php">CHINA</a></li>
@@ -73,24 +71,33 @@ if (isset($_POST['tplayer'])) {
         </div>
     </nav>
     <div class="container col-8">
-        <h1 class="text-light">Tambah Player</h1>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <h1 class="text-light">Tambahkan Pertandingan</h1>
+        <form action="" method="POST">
             <div class="mb-3">
-                <label for="ign" class="form-label text-light">ign</label>
-                <input type="text" id="ign" name="ign" class="form-control" required">
-            </div>
-            <div class="mb-3">
-                <label for="tim_id" class="form-label text-light">Tim</label>
-                <select id="tim_id" name="tim_id" class="form-select">
-                    <?php foreach ($tim as $tim) : ?>
-                        <option><?= $tim['tim_id']; ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-            <button type="submit" name="tambah" class="btn btn-primary">Submit</button>
+                <label for="" class="form-label text-light">Judul</label>
+                <input type="text" class="form-control" name="judul" autofocus required>
 
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label text-light">Tanggal</label>
+                <input type="text" class="form-control" name="tanggal" required>
+
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label text-light">Link Video</label>
+                <input type="text" class="form-control" name="link" required>
+
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label text-light">Gambar</label>
+                <input type="text" class="form-control" name="gambar" required>
+
+            </div>
+
+
+            <button type="submit" name="tambah" class="btn btn-primary">Tambahkan</button>
         </form>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
