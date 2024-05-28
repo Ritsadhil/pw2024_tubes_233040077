@@ -90,8 +90,8 @@ if (isset($_POST['tambah'])) {
             </div>
             <div class="mb-3">
                 <label for="" class="form-label text-light">Gambar</label>
-                <input type="file" class="form-control" name="gambar">
-
+                <input type="file" class="form-control gambar" name="gambar" onchange="previewImage()">
+                <img src="image/jadwal/GKaPfg5XoAA9BAs.jpg" alt="" width="150" class="img-preview">
             </div>
 
 
@@ -100,6 +100,7 @@ if (isset($_POST['tambah'])) {
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

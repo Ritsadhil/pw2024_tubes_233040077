@@ -32,10 +32,10 @@ function upload()
     $tmp_file = $_FILES['gambar']['tmp_name'];
 
     if ($error == 4) {
-        echo "<script>
-                alert('pilih gambar terlebih dahulu');
-        </script>";
-        return false;
+        // echo "<script>
+        //         alert('pilih gambar terlebih dahulu');
+        // </script>";
+        return 'GKaPfg5XoAA9BAs.jpg';
     }
 
     $daftar_gambar = ['jpg', 'png', 'jpeg'];
@@ -64,7 +64,11 @@ function upload()
 
 
     $nama_file_baru = uniqid();
-    move_uploaded_file($tmp_file, 'image/jadwal/' . $nama_file);
+    $nama_file_baru .= '.';
+    $nama_file_baru .= $ekstensi_file;
+    move_uploaded_file($tmp_file, 'image/jadwal/' . $nama_file_baru);
+
+    return $nama_file_baru;
 }
 
 function tambah($data)
@@ -94,6 +98,11 @@ function tambah($data)
 function hapus($id)
 {
     $conn = koneksi();
+    $gm = query("SELECT * FROM game WHERE id = $id ");
+    if ($gm['gambar'] != 'GKaPfg5XoAA9BAs.jpg') {
+        unlink('image/jadwal/' . $gm['gambar']);
+    }
+
     mysqli_query($conn, "DELETE FROM game WHERE id = $id") or die(mysqli_error($conn));
     return mysqli_affected_rows($conn);
 }
@@ -106,7 +115,16 @@ function ubah($data)
     $judul = htmlspecialchars($data['judul']);
     $tanggal = htmlspecialchars($data['tanggal']);
     $link = htmlspecialchars($data['link']);
-    $gambar = htmlspecialchars($data['gambar']);
+    $gambar_lama = htmlspecialchars($data['gambar_lama']);
+
+    $gambar = upload();
+    if (!$gambar) {
+        return false;
+    }
+
+    if ($gambar == 'GKaPfg5XoAA9BAs.jpg') {
+        $gambar = $gambar_lama;
+    }
 
     $query = "UPDATE game SET
                 judul = '$judul',
