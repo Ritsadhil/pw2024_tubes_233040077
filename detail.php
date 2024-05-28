@@ -73,8 +73,8 @@ $games = query("SELECT * FROM game WHERE id = $id");
             <li class="list-group-item text-white bg-dark">Tanggal : <?= $games['tanggal']; ?></li>
             <li class="list-group-item text-white bg-dark">Link : <?= $games['link']; ?></li>
             <li class="list-group-item text-white bg-dark">Gambar : <?= $games['gambar']; ?></li>
-            <li><a href="#" class="badge text-bg-warning text-decoration-none">ubah</a>
-                <a href="#" class="badge text-bg-danger text-decoration-none">hapus</a>
+            <li><a href="ujadwal.php?id=<?= $games['id']; ?>" class="badge text-bg-warning text-decoration-none">ubah</a>
+                <a href="hapus.php?id=<?= $games['id']; ?>" class="badge text-bg-danger text-decoration-none" onclick="return confirm ('Hapus jadwal?');">hapus</a>
             </li>
         </ul>
     </div>

@@ -2,6 +2,7 @@ body {
   background-image: url(../image/UI/timbg.jpg);
   background-repeat: repeat-y;
   background-size: cover;
+  overflow-x: hidden;
 }
 
 .logo {

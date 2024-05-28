@@ -4,6 +4,13 @@ $paperrex = query("SELECT * FROM player WHERE tim_id=1");
 $geng = query("SELECT * FROM player WHERE tim_id=2");
 $t1 = query("SELECT * FROM player WHERE tim_id=3");
 
+$games = query("SELECT * FROM game");
+
+
+if (isset($_POST['cari'])) {
+    $games = cari($_POST['keyword']);
+}
+
 
 
 ?>
@@ -55,10 +62,10 @@ $t1 = query("SELECT * FROM player WHERE tim_id=3");
                         <a class="nav-link" href="jadwal.php">Jadwal</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                <!-- <form class="d-flex" role="search" action="" method="POST">
+                    <input class="form-control me-2" type="text" placeholder="" aria-label="Search" name="keyword" autocomplete="off">
+                    <button class="btn btn-outline-success" type="submit" name="cari">Cari</button>
+                </form> -->
             </div>
         </div>
     </nav>

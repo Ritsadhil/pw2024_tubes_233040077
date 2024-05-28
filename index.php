@@ -2,6 +2,12 @@
 require 'functions.php';
 $tim = query("SELECT * FROM tim");
 $player = query("SELECT * FROM player");
+$game = query("SELECT * FROM game");
+
+
+if (isset($_POST['cari'])) {
+    $games = cari($_POST['keyword']);
+}
 
 ?>
 
@@ -52,10 +58,10 @@ $player = query("SELECT * FROM player");
                         <a class="nav-link" href="jadwal.php">Jadwal</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                <!-- <form class="d-flex" role="search" action="" method="POST">
+                    <input class="form-control me-2" type="text" placeholder="" aria-label="Search" name="keyword" autocomplete="off">
+                    <button class="btn btn-outline-success" type="submit" name="cari">Cari</button>
+                </form> -->
             </div>
         </div>
     </nav>
@@ -77,10 +83,7 @@ $player = query("SELECT * FROM player");
                         <li class="list-group-item text-white bg-dark mb-3">Gen G</li>
                         <li class="list-group-item text-white bg-dark mb-3">T1</li>
                     </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
+
                 </div>
             </div>
             <div class="col">
@@ -95,10 +98,7 @@ $player = query("SELECT * FROM player");
                         <li class="list-group-item text-white bg-dark mb-3">Team Heretics</li>
                         <li class="list-group-item text-white bg-dark mb-3">FUT Esports</li>
                     </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
+
                 </div>
             </div>
             <div class="col">
@@ -113,10 +113,7 @@ $player = query("SELECT * FROM player");
                         <li class="list-group-item text-white bg-dark mb-3">G2 Esports</li>
                         <li class="list-group-item text-white bg-dark mb-3">Leviatán</li>
                     </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
+
                 </div>
             </div>
             <div class="col">
@@ -131,10 +128,7 @@ $player = query("SELECT * FROM player");
                         <li class="list-group-item text-white bg-dark mb-3">FunPlus Phoenix</li>
                         <li class="list-group-item text-white bg-dark mb-3">Dragon Ranger Gaming</li>
                     </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
+
                 </div>
             </div>
         </div>

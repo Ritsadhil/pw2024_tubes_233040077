@@ -4,7 +4,7 @@ require 'functions.php';
 if (isset($_POST['tambah'])) {
     if (tambah($_POST) > 0) {
         echo "<script>
-        alert('data berhasil ditambahkan!');
+        alert('Jadwal berhasil ditambahkan!');
         document.location.href = 'jadwal.php'
     
     </script>";
@@ -72,7 +72,7 @@ if (isset($_POST['tambah'])) {
     </nav>
     <div class="container col-8">
         <h1 class="text-light">Tambahkan Pertandingan</h1>
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="" class="form-label text-light">Judul</label>
                 <input type="text" class="form-control" name="judul" autofocus required>
@@ -90,7 +90,7 @@ if (isset($_POST['tambah'])) {
             </div>
             <div class="mb-3">
                 <label for="" class="form-label text-light">Gambar</label>
-                <input type="text" class="form-control" name="gambar" required>
+                <input type="file" class="form-control" name="gambar">
 
             </div>
 
