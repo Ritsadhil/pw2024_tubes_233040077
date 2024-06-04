@@ -53,9 +53,7 @@ if (isset($_POST['daftar'])) {
 
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="jadwal.php">Dashboard</a>
-                    </li>
+
                 </ul>
 
             </div>
