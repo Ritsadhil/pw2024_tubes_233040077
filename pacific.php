@@ -40,9 +40,7 @@ if (isset($_POST['cari'])) {
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Region</a>
-                    </li> -->
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Tim
@@ -53,19 +51,12 @@ if (isset($_POST['cari'])) {
                             <li><a class="dropdown-item" href="americas.php">AMERICAS</a></li>
                             <li><a class="dropdown-item" href="china.php">CHINA</a></li>
                             <li>
-                                <!-- <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="jadwal.php">Jadwal</a>
-                    </li>
+
                 </ul>
-                <!-- <form class="d-flex" role="search" action="" method="POST">
-                    <input class="form-control me-2" type="text" placeholder="" aria-label="Search" name="keyword" autocomplete="off">
-                    <button class="btn btn-outline-success" type="submit" name="cari">Cari</button>
-                </form> -->
+
             </div>
         </div>
     </nav>
@@ -78,7 +69,6 @@ if (isset($_POST['cari'])) {
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">PAPER REX</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
                         <?php foreach ($paperrex as $prx) : ?>
@@ -95,7 +85,6 @@ if (isset($_POST['cari'])) {
                     </div>
                     <div class="card-body ">
                         <h5 class="card-title">Gen G</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make u p the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
                         <?php foreach ($geng as $gen) : ?>
@@ -112,7 +101,6 @@ if (isset($_POST['cari'])) {
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">T1</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
                         <?php foreach ($t1 as $t1) : ?>

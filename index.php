@@ -1,12 +1,18 @@
 <?php
+session_start();
+
 require 'functions.php';
 $tim = query("SELECT * FROM tim");
 $player = query("SELECT * FROM player");
-$game = query("SELECT * FROM game");
+$games = query("SELECT * FROM game ORDER BY id DESC");
 
 
 if (isset($_POST['cari'])) {
     $games = cari($_POST['keyword']);
+}
+
+if (isset($_POST['login'])) {
+    $login = login($_POST);
 }
 
 ?>
@@ -36,9 +42,6 @@ if (isset($_POST['cari'])) {
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Region</a>
-                    </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Tim
@@ -49,19 +52,43 @@ if (isset($_POST['cari'])) {
                             <li><a class="dropdown-item" href="americas.php">AMERICAS</a></li>
                             <li><a class="dropdown-item" href="china.php">CHINA</a></li>
                             <li>
-                                <!-- <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="jadwal.php">Jadwal</a>
+
+
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Login
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li>
+                                <?php if (isset($login['error'])) : ?>
+                                    <p><?= $login['pesan']; ?></p>
+                                <?php endif; ?>
+                                <form class="px-4 py-3" id="formlogin" action="" method="POST">
+                                    <div class="mb-3">
+                                        <label class="form-label">Username</label>
+                                        <input type="text" class="form-control" name="username" autocomplete="off" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Password</label>
+                                        <input type="password" class="form-control" name="password" autocomplete="off" required>
+                                    </div>
+                                    <div class="mb-3">
+
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" name="login">Login</button>
+                                </form>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="daftar.php">Belum punya akun? Daftar disini</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
-                <!-- <form class="d-flex" role="search" action="" method="POST">
-                    <input class="form-control me-2" type="text" placeholder="" aria-label="Search" name="keyword" autocomplete="off">
-                    <button class="btn btn-outline-success" type="submit" name="cari">Cari</button>
-                </form> -->
+
             </div>
         </div>
     </nav>
@@ -76,7 +103,6 @@ if (isset($_POST['cari'])) {
                     <img src="image/region/pacific.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">PACIFIC</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item text-white bg-dark mb-3">Paper Rex</li>
@@ -91,7 +117,6 @@ if (isset($_POST['cari'])) {
                     <img src="image/region/emea.png" class="card-img-top" alt="...">
                     <div class="card-body ">
                         <h5 class="card-title">EMEA</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make u p the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item text-white bg-dark mb-3">Fnatic</li>
@@ -106,7 +131,6 @@ if (isset($_POST['cari'])) {
                     <img src="image/region/amer.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">AMERICAS</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item text-white bg-dark mb-3">100 Thieves</li>
@@ -121,7 +145,6 @@ if (isset($_POST['cari'])) {
                     <img src="image/region/CN.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">CHINA</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item text-white bg-dark mb-3">EDward Gaming</li>
@@ -133,7 +156,29 @@ if (isset($_POST['cari'])) {
             </div>
         </div>
     </section>
+
+    <section class="jadwal">
+        <p class="text-center fs-2 fw-medium text-light">Jadwal Pertandingan</p>
+        <div class="container">
+            <div class="row row-cols-2 row-cols-md-5 g-5">
+                <?php foreach ($games as $game) : ?>
+                    <div class="card text-white bg-dark" style="width: 18rem;">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img src="../pw2024_tubes_233040077/image/jadwal/<?= $game['gambar']; ?>" class="card-img-top embed-responsive-item" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $game['judul']; ?></h5>
+                            <p class="card-text"><?= $game['tanggal']; ?></p>
+                            <a href="<?= $game['link']; ?>" class="btn btn-primary">Tonton Sekarang!</a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

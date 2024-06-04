@@ -1,7 +1,13 @@
 <?php
 require 'functions.php';
 
+$edward = query("SELECT * FROM player WHERE tim_id=10");
+$funplus = query("SELECT * FROM player WHERE tim_id=11");
+$dragon = query("SELECT * FROM player WHERE tim_id=12");
+
+
 $games = query("SELECT * FROM game");
+
 
 if (isset($_POST['cari'])) {
     $games = cari($_POST['keyword']);
@@ -33,9 +39,7 @@ if (isset($_POST['cari'])) {
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Region</a>
-                    </li> -->
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Tim
@@ -46,19 +50,12 @@ if (isset($_POST['cari'])) {
                             <li><a class="dropdown-item" href="americas.php">AMERICAS</a></li>
                             <li><a class="dropdown-item" href="china.php">CHINA</a></li>
                             <li>
-                                <!-- <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="jadwal.php">Jadwal</a>
-                    </li>
+
                 </ul>
-                <!-- <form class="d-flex" role="search" action="" method="POST">
-                    <input class="form-control me-2" type="text" placeholder="" aria-label="Search" name="keyword" autocomplete="off">
-                    <button class="btn btn-outline-success" type="submit" name="cari">Cari</button>
-                </form> -->
+
             </div>
         </div>
     </nav>
@@ -69,15 +66,11 @@ if (isset($_POST['cari'])) {
                     <img src="image/tim/edg.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Edward Gaming</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">Haodong</li>
-                        <li class="list-group-item text-white bg-dark mb-3">CHICHOO</li>
-                        <li class="list-group-item text-white bg-dark mb-3">nobody</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Zmjjkk</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Smoggy</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Muggle</li>
+                        <?php foreach ($edward as $edg) : ?>
+                            <li class="list-group-item text-white bg-dark mb-3"><?= $edg['ign']; ?></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -86,14 +79,11 @@ if (isset($_POST['cari'])) {
                     <img src="image/tim/fpx.png" class="card-img-top" alt="...">
                     <div class="card-body ">
                         <h5 class="card-title">FunPlus Phoenix</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make u p the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">AAAAY</li>
-                        <li class="list-group-item text-white bg-dark mb-3">BerLIN</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Lysoar</li>
-                        <li class="list-group-item text-white bg-dark mb-3">autumn</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Life</li>
+                        <?php foreach ($funplus as $fpx) : ?>
+                            <li class="list-group-item text-white bg-dark mb-3"><?= $fpx['ign']; ?></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -102,16 +92,11 @@ if (isset($_POST['cari'])) {
                     <img src="image/tim/drg.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Dragon Ranger Gaming</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">Nicc</li>
-                        <li class="list-group-item text-white bg-dark mb-3">TvirusLuke</li>
-                        <li class="list-group-item text-white bg-dark mb-3">vo0kashu</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Dingwei</li>
-                        <li class="list-group-item text-white bg-dark mb-3">TZH</li>
-                        <li class="list-group-item text-white bg-dark mb-3">HaTo</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Shion7</li>
+                        <?php foreach ($dragon as $drg) : ?>
+                            <li class="list-group-item text-white bg-dark mb-3"><?= $drg['ign']; ?></li>
+                        <?php endforeach; ?>
                     </ul>
 
                 </div>

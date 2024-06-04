@@ -32,9 +32,7 @@ function upload()
     $tmp_file = $_FILES['gambar']['tmp_name'];
 
     if ($error == 4) {
-        // echo "<script>
-        //         alert('pilih gambar terlebih dahulu');
-        // </script>";
+
         return 'GKaPfg5XoAA9BAs.jpg';
     }
 
@@ -78,7 +76,6 @@ function tambah($data)
     $judul = htmlspecialchars($data['judul']);
     $tanggal = htmlspecialchars($data['tanggal']);
     $link = htmlspecialchars($data['link']);
-    // $gambar = htmlspecialchars($data['gambar']);
 
     $gambar = upload();
     if (!$gambar) {
@@ -151,4 +148,83 @@ function cari($keyword)
         $rows[] = $row;
     }
     return $rows;
+}
+
+
+function login($data)
+{
+    $conn = koneksi();
+
+    $username = htmlspecialchars($data['username']);
+    $password = htmlspecialchars($data['password']);
+
+
+
+    if ($user = query("SELECT * FROM user WHERE username = '$username'")) {
+        if (password_verify($password, $user['password'])) {
+
+
+
+            $_SESSION['login'] = true;
+            header("Location: jadwal.php");
+            exit;
+        }
+    }
+    return [
+        'error' => true,
+        'pesan' => 'Username / Password Salah'
+    ];
+}
+
+function daftar($data)
+{
+    $conn = koneksi();
+
+    $username = htmlspecialchars(strtolower($data['username']));
+    $password1 = mysqli_real_escape_string($conn, $data['password1']);
+    $password2 = mysqli_real_escape_string($conn, $data['password2']);
+
+    if (empty($username) || empty($password1) || empty($password2)) {
+        echo "
+            <script>
+                alert('tolong isi username / password yang anda inginkan');
+                document.location.href = 'daftar.php';
+            </script>";
+        return false;
+    }
+
+    if (query("SELECT * FROM user WHERE username = '$username'")) {
+        echo "
+            <script>
+                alert('Username sudah terdaftar');
+                document.location.href = 'daftar.php';
+            </script>";
+        return false;
+    }
+
+    if ($password1 !== $password2) {
+        echo "
+        <script>
+            alert('Tolong sesuaikan konfirmasi password anda dengan password yang anda masukan!');
+            document.location.href = 'daftar.php';
+        </script>";
+        return false;
+    }
+
+    if (strlen($password1 < 5)) {
+        echo "
+        <script>
+            alert('Password terlalu pendek');
+            document.location.href = 'daftar.php';
+        </script>";
+        return false;
+    }
+
+    $password_baru = password_hash($password1, PASSWORD_DEFAULT);
+
+    $query = "INSERT INTO user VALUES
+                (null, '$username', '$password_baru')
+                ";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+    return mysqli_affected_rows($conn);
 }

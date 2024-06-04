@@ -1,6 +1,10 @@
 <?php
 require 'functions.php';
 
+$thieves = query("SELECT * FROM player WHERE tim_id=7");
+$g2 = query("SELECT * FROM player WHERE tim_id=8");
+$leviatan = query("SELECT * FROM player WHERE tim_id=9");
+
 $games = query("SELECT * FROM game");
 
 if (isset($_POST['cari'])) {
@@ -32,9 +36,7 @@ if (isset($_POST['cari'])) {
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Region</a>
-                    </li> -->
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Tim
@@ -45,19 +47,12 @@ if (isset($_POST['cari'])) {
                             <li><a class="dropdown-item" href="americas.php">AMERICAS</a></li>
                             <li><a class="dropdown-item" href="china.php">CHINA</a></li>
                             <li>
-                                <!-- <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="jadwal.php">Jadwal</a>
-                    </li>
+
                 </ul>
-                <!-- <form class="d-flex" role="search" action="" method="POST">
-                    <input class="form-control me-2" type="text" placeholder="" aria-label="Search" name="keyword" autocomplete="off">
-                    <button class="btn btn-outline-success" type="submit" name="cari">Cari</button>
-                </form> -->
+
             </div>
         </div>
     </nav>
@@ -68,14 +63,12 @@ if (isset($_POST['cari'])) {
                     <img src="image/tim/100_Thieves.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">100 Thieves</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">Asuna</li>
-                        <li class="list-group-item text-white bg-dark mb-3">bang</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Cryocells</li>
-                        <li class="list-group-item text-white bg-dark mb-3">eeiu</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Boostio</li>
+                        <?php foreach ($thieves as $t) : ?>
+                            <li class="list-group-item text-white bg-dark mb-3"><?= $t['ign']; ?></li>
+                        <?php endforeach; ?>
+
                     </ul>
                 </div>
             </div>
@@ -84,14 +77,11 @@ if (isset($_POST['cari'])) {
                     <img src="image/tim/G2.png" class="card-img-top" alt="...">
                     <div class="card-body ">
                         <h5 class="card-title">G2</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make u p the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">JonahP</li>
-                        <li class="list-group-item text-white bg-dark mb-3">trent</li>
-                        <li class="list-group-item text-white bg-dark mb-3">valyn</li>
-                        <li class="list-group-item text-white bg-dark mb-3">leaf</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Icy</li>
+                        <?php foreach ($g2 as $g2) : ?>
+                            <li class="list-group-item text-white bg-dark mb-3"><?= $g2['ign']; ?></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -100,14 +90,11 @@ if (isset($_POST['cari'])) {
                     <img src="image/tim/Leviatán.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Leviatán</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">kiNgg</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Mazino</li>
-                        <li class="list-group-item text-white bg-dark mb-3">aspas</li>
-                        <li class="list-group-item text-white bg-dark mb-3">tex</li>
-                        <li class="list-group-item text-white bg-dark mb-3">C0M</li>
+                        <?php foreach ($leviatan as $lev) : ?>
+                            <li class="list-group-item text-white bg-dark mb-3"><?= $lev['ign']; ?></li>
+                        <?php endforeach; ?>
                     </ul>
 
                 </div>

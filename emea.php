@@ -1,6 +1,10 @@
 <?php
 require 'functions.php';
 
+$fnatic = query("SELECT * FROM player WHERE tim_id=4");
+$heretics = query("SELECT * FROM player WHERE tim_id=5");
+$fut = query("SELECT * FROM player WHERE tim_id=6");
+
 $games = query("SELECT * FROM game");
 
 if (isset($_POST['cari'])) {
@@ -36,9 +40,7 @@ if (isset($_POST['cari'])) {
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Region</a>
-                    </li> -->
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Tim
@@ -49,19 +51,12 @@ if (isset($_POST['cari'])) {
                             <li><a class="dropdown-item" href="americas.php">AMERICAS</a></li>
                             <li><a class="dropdown-item" href="china.php">CHINA</a></li>
                             <li>
-                                <!-- <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="jadwal.php">Jadwal</a>
-                    </li>
+
                 </ul>
-                <!-- <form class="d-flex" role="search" action="" method="POST">
-                    <input class="form-control me-2" type="text" placeholder="" aria-label="Search" name="keyword" autocomplete="off">
-                    <button class="btn btn-outline-success" type="submit" name="cari">Cari</button>
-                </form> -->
+
             </div>
         </div>
     </nav>
@@ -74,14 +69,11 @@ if (isset($_POST['cari'])) {
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">FNATIC</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">Boaster</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Derke</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Alfazer</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Leo</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Chronicle</li>
+                        <?php foreach ($fnatic as $fnc) : ?>
+                            <li class="list-group-item text-white bg-dark mb-3"><?= $fnc['ign']; ?></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -92,15 +84,12 @@ if (isset($_POST['cari'])) {
                     </div>
                     <div class="card-body ">
                         <h5 class="card-title">Team Heretics</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make u p the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">Boo</li>
-                        <li class="list-group-item text-white bg-dark mb-3">benjyfishy</li>
-                        <li class="list-group-item text-white bg-dark mb-3">MiniBoo</li>
-                        <li class="list-group-item text-white bg-dark mb-3">RieNs</li>
-                        <li class="list-group-item text-white bg-dark mb-3">Wo0t</li>
-                        <li class="list-group-item text-white bg-dark mb-3">paTiTek</li>
+                        <?php foreach ($heretics as $th) : ?>
+                            <li class="list-group-item text-white bg-dark mb-3"><?= $th['ign']; ?></li>
+                        <?php endforeach; ?>
+
                     </ul>
                 </div>
             </div>
@@ -111,14 +100,11 @@ if (isset($_POST['cari'])) {
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">FUT Esports</h5>
-                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-white bg-dark mb-3">qRaxs</li>
-                        <li class="list-group-item text-white bg-dark mb-3">MrFaliN</li>
-                        <li class="list-group-item text-white bg-dark mb-3">ATA KAPTAN</li>
-                        <li class="list-group-item text-white bg-dark mb-3">yetujey</li>
-                        <li class="list-group-item text-white bg-dark mb-3">cNed</li>
+                        <?php foreach ($fut as $f) : ?>
+                            <li class="list-group-item text-white bg-dark mb-3"><?= $f['ign']; ?></li>
+                        <?php endforeach; ?>
                     </ul>
 
                 </div>

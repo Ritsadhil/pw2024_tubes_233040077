@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['login'])) {
+    header("Location: index.php");
+    exit;
+}
 require 'functions.php';
 
 if (isset($_POST['tambah'])) {
@@ -32,40 +38,20 @@ if (isset($_POST['tambah'])) {
 <body>
     <nav class="navbar sticky-top navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="image/UI/600px-VCT_icon_darkmode.png" alt="vct" class="logo"></a>
+            <a class="navbar-brand" href="#"><img src="image/UI/600px-VCT_icon_darkmode.png" alt="vct" class="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Region</a>
-                    </li> -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Tim
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="pacific.php">PACIFIC</a></li>
-                            <li><a class="dropdown-item" href="emea.php">EMEA</a></li>
-                            <li><a class="dropdown-item" href="americas.php">AMERICAS</a></li>
-                            <li><a class="dropdown-item" href="china.php">CHINA</a></li>
-                            <li>
-                                <!-- <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="jadwal.php">Jadwal</a>
+                        <a class="nav-link" href="jadwal.php">Dashboard</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form class="d-flex" role="search" action="jadwal.php" method="post">
+                    <input class="form-control me-2 keyword" type="text" placeholder="" aria-label="Search" name="keyword" autocomplete="off">
+                    <button class="btn btn-outline-success tombol-cari" type="submit" name="cari">Cari</button>
                 </form>
             </div>
         </div>
