@@ -159,9 +159,14 @@ if (isset($_POST['login'])) {
 
     <section class="jadwal">
         <p class="text-center fs-2 fw-medium text-light">Jadwal Pertandingan</p>
-        <div class="container">
-            <div class="row row-cols-2 row-cols-md-5 g-5">
-                <?php foreach ($games as $game) : ?>
+        <form class="d-flex" role="search" action="jadwal.php" method="post">
+            <input class="form-control me-2 bg-dark text-white" id="keyword" type="text" placeholder="Cari Pertandingan disini" aria-label="Search" name="keyword" autocomplete="off">
+            <!-- <button class="btn btn-outline-success" id="tombol-cari" type="submit" name="cari">Cari</button> -->
+        </form>
+
+        <div class="row row-cols-2 row-cols-md-5 g-5" id="container">
+            <?php foreach ($games as $game) : ?>
+                <div class="col col-md-3 ">
                     <div class="card text-white bg-dark" style="width: 18rem;">
                         <div class="embed-responsive embed-responsive-16by9">
                             <img src="../pw2024_tubes_233040077/image/jadwal/<?= $game['gambar']; ?>" class="card-img-top embed-responsive-item" alt="...">
@@ -172,9 +177,10 @@ if (isset($_POST['login'])) {
                             <a href="<?= $game['link']; ?>" class="btn btn-primary">Tonton Sekarang!</a>
                         </div>
                     </div>
-                <?php endforeach; ?>
-            </div>
+                </div>
+            <?php endforeach; ?>
         </div>
+
 
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
